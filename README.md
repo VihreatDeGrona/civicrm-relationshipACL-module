@@ -20,7 +20,10 @@ Copy _com.github.anttikekki.relationshipACL_ folder to CiviCRM extension folder 
 
 This module uses temporary tables in database so CiviCRM MySQL user has to have permissions to create these kind of tables.
 
-### Performace considerations
+### Performance considerations
 This module performance on large CiviCRM sites may be poor. Used aclWhereClause hook allows to modify SQL WHERE clause in ACL check. This means the module needs to determine the relationship tree structure on every ACL query. The relationship tree may be deep and complex. This means 1 query for every relationship level. The search done with help of temporary table in database.
 
 This logic may lead to multiple large queries and large temporary table on every page load in contact administration.
+
+### Licence
+GNU Affero General Public License
