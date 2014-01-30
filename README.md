@@ -16,7 +16,7 @@ Large portions of this module is based on the [Relationship Permissions as ACLs]
 With this module User 1 can see and edit Organisation 1, Sub-organisation 1 and Sub-organisation 2.
 
 ### Installation
-Copy _com.github.anttikekki.relationshipACL_ folder to CiviCRM extension folder and enable extension in administration.
+Create _com.github.anttikekki.relationshipACL_ folder to CiviCRM extension folder, copy all files into it and enable extension in administration.
 
 This module uses temporary tables in database so CiviCRM MySQL user has to have permissions to create these kind of tables.
 
