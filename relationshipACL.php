@@ -10,7 +10,9 @@
 
 if(class_exists('RelationshipACLQueryWorker') === false) {
   require_once "RelationshipACLQueryWorker.php";
+  
 }
+RelationshipACLQueryWorker::checkVersion("1.1");
 
 
 /*
@@ -30,7 +32,7 @@ function relationshipACL_civicrm_aclWhereClause($type, &$tables, &$whereTables, 
     return;
   }
   
-  $worker = new RelationshipACLQueryWorker();
+  $worker = RelationshipACLQueryWorker::getInstance();
   $tmpTableName = $worker->createContactsTableWithEditPermissions($contactID);
 
   $tables ['$tmpTableName'] = $whereTables ['$tmpTableName'] =
