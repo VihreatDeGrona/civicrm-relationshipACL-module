@@ -19,7 +19,7 @@ RelationshipACLQueryWorker::checkVersion("1.2");
  * Implement civicrm_aclWhereClause hook.
  *
  * Searches the whole relationships tree structure and finds all the contacts that given contact id 
- * has right to edit.
+ * has right to edit. Administrator can see all contacts.
  *
  * @param int $type - type of permission needed
  * @param array $tables - (reference ) add the tables that are needed for the select clause
@@ -29,6 +29,11 @@ RelationshipACLQueryWorker::checkVersion("1.2");
  */
 function relationshipACL_civicrm_aclWhereClause($type, &$tables, &$whereTables, &$contactID, &$where) {
   if (!$contactID) {
+    return;
+  }
+
+  //Administrator can see all contacts
+  if(user_access('administer CiviCRM')) {
     return;
   }
   
