@@ -48,6 +48,6 @@ function relationshipACL_civicrm_aclWhereClause($type, &$tables, &$whereTables, 
     $where = " permrelationships.contact_id IS NOT NULL ";
   }
   else{
-    $where .= " AND permrelationships.contact_id IS NOT NULL ";
+    $where = '(' . $where .  " OR permrelationships.contact_id IS NOT NULL "  ')';
   }
 }
